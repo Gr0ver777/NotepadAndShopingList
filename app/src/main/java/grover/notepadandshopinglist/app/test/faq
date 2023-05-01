@@ -1,0 +1,293 @@
+class MainActivity : AppCompatActivity() {
+
+    var counter : Int = 0
+    var testBool : Boolean = true
+    var testChar : Char = '4'
+    var testString : Boolean = "Hi".startsWith("ra")
+    var tv : TextView? = null
+
+    override fun onCreate(s: Bundle?) {
+        super.onCreate(s)
+        setContentView(R.layout.activity_main)
+        counter = 5
+        //var tt : TextView = findViewById(R.id.v_Test)
+        tv = findViewById(R.id.v_Test)
+        tv?.text = "Shlyapa"
+    }
+
+    fun onClickTest(view: View){
+        val vTest = findViewById<TextView>(R.id.v_Test)
+        vTest.text = "Kyky lya lya chi chi ga ga"
+    }
+
+var counter : Int = 0
+    var testBool : Boolean = true
+    var testChar : Char = '4'
+    var testString : Boolean = "Hi".startsWith("ra")
+    var tv : TextView? = null
+    lateinit var cs : TextView
+    lateinit var bt : Button
+
+    override fun onCreate(s: Bundle?) {
+        super.onCreate(s)
+        setContentView(R.layout.activity_main)
+        counter = 5
+        //var tt : TextView = findViewById(R.id.v_Test)
+        tv = findViewById(R.id.v_Test)
+        tv?.text = "Shlyapa"
+        bt = findViewById(R.id.b_Test)
+        bt.setOnClickListener{
+            tv?.text = "Arbaiten"
+        }
+
+}
+
+в манифесте прописываются первоначальные настройки
+и в активити странички которые будут
+
+класс от которого всегда наследуемся аппкомпактактивити
+MainActivity : AppCompatActivity()
+
+наследование это как копия, в нашем классе мы получаем копию оригинала класса аппкомпактактивити
+
+метод oncreate запускается когда активити уже готово
+
+localhistory
+выбираем нужное правой нопкой и реверт
+сутки примерно сохраняет
+
+класс R (ресурс) - например R.layout.activity
+
+findViewById -
+val vTest = findViewById<TextView>(R.id.v_Test)
+var tt : TextView = findViewById(R.id.v_Test)
+
+шифт + кавыйчки - выделенные символы помещает в кавычки
+
+переменые котлин
+если создавать сразу после класса  это будет глобальная переменная, доступ в любой функции
+либо локальная внутри функции из другой функции не получим доступ
+
+var - можно перезаписать, считывать и записывать
+val - константа, неизменяемое значение, можно считывать
+
+дальше переменные можно использовать без вара, если хотим работать с этой переменной
+если второй раз вар это будет уже новая переменная
+метод .toString() преобразает любую переменую в строку
+
+литералы это значение
+
+byte - 1 байт от -128 до 127
+short - 2 байта от -32768 до 32767
+int - 4 байта от -2147483648 до 2147483647
+long - 8 байт от -9 223 372 036 854 775 808 до 9 223 372 036 854 775 807
+float - 4 байта от -3.4*10 в степени 38
+double - 8 байт от +=5.0*10 в -324 степени до +-1ю7*10 в 308 степени
+
+в char хранится один символ, пишется в кавычках
+
+bt.setOnClickListener()
+слушатель нажатий
+
+view bunding
+https://developer.android.com/topic/libraries/view-binding
+
+lateinit var bindingClass : ActivityMainBinding
+запихнули xml в класс
+
+bindingClass = ActivityMainBinding.inflate(LayoutInflater)
+инфлэйт помещает всё в памть
+
+invlidate cahe and restart
+если глюки какие-то
+
+В ресурсах нельзя использовать пробелы и заглавные буквы
+https://developer.android.com/guide/topics/resources/providing-resources
+
+квалификаторы
+например перевод на другие языки
+андройд ищет папку с русским квалификатором языка, если нет, берет
+стандартную валуес стрингс
+
+можно в опен эдиторе создавать ресурсы
+на файле ресурса правой кнопкой в самом низу либо в файле сверху справа
+
+обязательно одинаковый айди(имя) для разных ресурсов, с языками разметкой и т.д.
+
+если ручками
+создаем класс активити
+в функции онкерате указываем разметку которая будет
+задикларировать активити в манифесте
+
+самая полезная инфа в логах это
+Caused by
+
+val message = intent.getStringExtra("key")
+пишем тот тип данных который хотим получить
+
+массив.indices - возвращает диапозон массива (можно испольовать
+как лен в питоне для перебора индексов)
+
+массив.withIndex - выдаёт ключ значение, как items в питоне
+
+a in 10 downTo 4 - перебирает значение снизу вверх т.е.
+на примере с 10 до 4 - 4 включительно
+
+10 downTo 0 step 2 - шаг 2
+
+a in 1 until массив.size - от 1 до размера массива не включительно,
+чтобы не выйти циклом за массив, не надо указывать -1
+
+массив.forEach{создается пременая it, которая перебирает массив или список}
+то же самое что фор, только как функция
+
+Цикл пока не найдём элемент
+c = 0
+while(a != "b"){
+    a = массив[c]
+    с++
+
+16 урок разные активити запуск
+
+Intent() это класс который несет в себе сообщение системе
+и говорит что нужно что-то сделать
+val intent = Intent(this, TestActivity1::class.java)
+первый это наш активити где находимся и указать ккакой хотим открыть
+в общем закрывает одно окно и открывает другое
+
+Нажимаем на кнопку и открываем новое активити, старое висит и можно вернуться
+ fun onclickTestButton(view: View){
+
+        val intent = Intent(this, NewActTest::class.java)
+        startActivity(intent)
+
+Финиш закрывает текущее активити, как кнопка назад работает, типа вернуться
+fun onclickTestButton(view: View) {
+        finish()
+
+просто
+intent - это гет интент
+val message = intent.getStringExtra(Constance.TEST_B) - получить контент по ключу,
+где стринг, если нужен инт или другое пишем getIntExtra и т.д.
+
+i.putExtra("key", "как тебя зовут ?")
+путэкстра в активити передаёт информацию с прошлого активити
+первый элемент ключ, а второй что хотим передать
+
+val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra(Constance.TEST_B, "V knopky")
+        startActivity(intent)
+
+val message = intent.getStringExtra(Constance.TEST_B)
+        bindingClass.butGetIntent.text = message
+
+старая штука надо научитьс новой. это отправить данные
+startActivityForResult
+
+параметр функции это где сама функция
+Class A
+fun addAge(years: Int = 10) - это параметр
+
+атрибуты это когда мы вызываем эту функцию и передаём туда значения
+A.addAge(20) - 20 это атрибут
+
+вернуть что-то из функции
+fun addAge(years: Int = 10): String{ - стринг это что возвращаем
+return "abv"
+}
+
+инфикс работает только с одним параметров, без параметра нельзя
+и больше 1 тоже нельзя
+зато потом можно применить эту функциювот так, вторая строчка
+infix fun addAge(years:Int)
+user addAge 10
+
+Apply если хотим в байдинге использовать сразу несколько идентификаторов
+viewBinding.apply {
+    if(edA.text.isNullOrEmpty()) edA.error = "Значение не выбрано"
+    if(edB.text.isNullOrEmpty()) edB.error = "Значение не выбрано"
+
+либо такое же сразу индентификаторы в байдинге
+init() = with(binding)
+    ew.text
+    ab.text
+
+sqrt это вычислить корень
+pow возвести в степень в скобках указываем степень
+sqrt((a.pow(2)) + (b.pow(2)))
+
+за статус бар отвечает в ресурсах в валуес в темах
+<item name="colorPrimaryVariant">
+
+а за тулбар отвечает в ресурсах в валуес в темах
+<item name="colorPrimary">
+
+три штуки в ряд показывает
+rcView.layoutManager = GridLayoutManager(this@MainActivity, 3)
+
+лайнар показывет каждый элемент отдельно
+rcView.layoutManager = LinearLayoutManager(this@MainActivity)
+
+отключить тулбар сверху, в ресурсах в темах в одной и в другой добавить
+<item name="windowActionBar">false</item>
+<item name="windowNoTitle">true</item>
+
+и отключить самую верхнюю полоску в ресурсах в теме
+<item name="android:windowFullscreen">true</item>
+
+включить стрелку в тулбаре
+supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+идентификатор стрелки тулбара
+android.R.id.home
+
+следит за кнопкой стрелки тулбара
+override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == android.R.id.home) finish()
+        return true
+
+поменять тайтл тулбара
+supportActionBar?.title = "Admin"
+
+выбирает дефолтную кнопку в ботон меню
+binding.bNews.selectedItemId = R.id.item3
+
+чтобы карточка cardview отображалась правильноо 
+app:cardUseCompatPadding="true"
+
+maven central - откуда все скачивают библиотеки, 
+это огромный репозиторий библиотек для платформы JVM.
+
+гугл могут тольок гугловские скачивать
+
+
+
+
+сначала в проекте заводим зависимости в файле буилд градл модуль
+в депенсисез (ktx значит для котлина)
+
+библиотека рум
+implementation 'androidx.room:room-ktx:2.5.1'
+kapt 'anroidx.room:room-compiler:2.3.0'
+
+библиотека лайв дата и вью модел
+implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+
+для настроек берем библиотеку
+implementation 'androidx.preference:preference-ktx:1.2.0'
+
+в плагине указывать дополнительные установки типа kotlin-kapt и т.д.
+
+ 
+Один Entity это одна таблица
+@Entity (название таблицы = '')
+
+@PrimaryKey (autoGenerate = true)
+автозаполнение первой колонки
+
+@ColumnInfo (name = '')
+простоая колона
+
+Serializable - иначе не сможем передать как целый класс,
+пришлось бы передовать по отдельности переменые
