@@ -3,6 +3,7 @@ package grover.notepadandshopinglist.app.test.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 
 @Entity (tableName = "shopping_list_names")
@@ -25,4 +26,4 @@ data class ShoppingListNames (
     @ColumnInfo(name = "ItemsIds")
     val ItemsIds: String,
 
-): java.io.Serializable
+): Serializable
