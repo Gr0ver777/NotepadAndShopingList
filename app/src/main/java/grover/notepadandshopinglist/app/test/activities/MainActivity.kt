@@ -1,7 +1,8 @@
-package grover.notepadandshopinglist.app.test
+package grover.notepadandshopinglist.app.test.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import grover.notepadandshopinglist.app.test.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
