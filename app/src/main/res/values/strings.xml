@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">NotepadAndShopingList</string>
+    <string name="app_name">NotepadAndShoppingList</string>
+    <string name="settings">Настройки</string>
+    <string name="notes">Записи</string>
+    <string name="list">Список покупок</string>
+    <string name="new_item">Создать новый</string>
 </resources>
