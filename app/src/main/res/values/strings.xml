@@ -4,4 +4,9 @@
     <string name="notes">Записи</string>
     <string name="list">Список покупок</string>
     <string name="new_item">Создать новый</string>
+    <string name="new_title_note">Заголовок</string>
+    <string name="new_description_note">Описание</string>
+    <string name="save_new_note">Сохранить</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

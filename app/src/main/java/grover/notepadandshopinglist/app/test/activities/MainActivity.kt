@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import grover.notepadandshopinglist.app.test.R
 import grover.notepadandshopinglist.app.test.databinding.ActivityMainBinding
+import grover.notepadandshopinglist.app.test.fragments.FragmentManager
+import grover.notepadandshopinglist.app.test.fragments.NoteFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,13 +25,13 @@ class MainActivity : AppCompatActivity() {
                     Log.d("MyLog", "settings")
                 }
                 R.id.notes -> {
-                    Log.d("MyLog", "notes")
+                    FragmentManager.setFragment(NoteFragment.newInstance(), this)
                 }
                 R.id.shop_list -> {
                     Log.d("MyLog", "list")
                 }
                 R.id.new_item -> {
-                    Log.d("MyLog", "new")
+                    FragmentManager.currentFrag?.onClickNew()
                 }
             }
             true
