@@ -1,0 +1,80 @@
+Kotlin - создан в 2011 компанией JetBrains
+Полностью совместим с джава(компилируется в байт код и работает на той же jvm
+В одном проекте может быть как джава код так и котлин код и они могут использовать друг друга
+Котлин может импортировать и использовать любые существующие Джава библиотеки
+
+Стандарт андрой разработки. С 2019 года гугл полностью перешёл на котлин
+Спринг тоже можно писать на котлин
+Код на котлин в два раза компкатней, чем на джава
+Строго типизированный язык
+
+val - это константа, неизменяемое значение
+var - это переменая, изменяемое значение
+
+через $ или ${} можно вставлять разные переменные и вычисления вместо конкатенации
+listOf() - неизменяемый список, ни добавить ни изменить
+mutableListOf() - изменяемый арайлист
+1..10 - диапозон
+1 until 10 - диапозон от 1 до 9, до 10 не включительно, -1 в общем
+10 downTo 1 - убывающий порядок от 10 до 1
+0..100 step 10 - диапозон с шагом 10
+
+в функции необязательно указывать тип возвращаемого значения,
+не во всех случаях, но можно, но это плохая практика
+fun testSimple() - функция без аргументов
+fun testSimple(): Int{} - функция без аргументов и пишем возвращаемое значение
+fun testSimple(x: Int, y: Int) = x + y - если в одну строку можно просто присвоить значение
+testNamedArgument(y = 4, z = 2, x = 5) - можем явно присваивать аргументы
+fun testDefaultArg(x: Int = 1, y: Int = 2) - параметры по умолчанию в функции, нет в джава
+testDefaultArg(x = 3) - если вызовем без аргументов, подставятся по умолчанию,
+если ставим свои, тогда заменяются в функции. Можем ставить не все.
+void (как войд метод в джава, тоесть ничего не возвращает)
+
+Вы можете передавать переменное количество аргументов (vararg) с именами, используя spread оператор:
+fun foo(vararg strings: String) { /*...*/ }
+foo(strings = *arrayOf("a", "b", "c"))
+
+
+
+fun main(){
+    println("hello world")
+    val test1: String = "hello"
+    var test2: String = "hello"
+    test2 = "goodbye"
+    println("Sh ${test1}")
+
+    val items = listOf("apple", "banana", "orange")
+    for (item in items)
+        println(item)
+
+    var index = 0
+    while (index < items.size){
+    println($index is ${items[index]})
+    index++
+    }
+    println(5 in 3..10) // true
+    for (i in 1..10)
+    print(i)
+    for(i in 1 until 10)
+    print(i)
+    for(i in 10 downTo 1)
+    print(i)
+    for(i in 0..100 step 10)
+    print(i)
+}
+
+fun main(){
+    println(testSimple(3, 10))
+    println(testString(10))
+    testNamedArgument(y = 4, z = 2, x = 5)
+}
+fun testSimple(x: Int, y: Int) = x + y
+fun testString(x: Int): String{
+    return "String is $x"}
+fun testNamedArguments(x: Int, y: Int, z: Int): List<Int>{
+    return listOf(x,y,z)}
+fun testDefaultArg(x: Int = 1, y: Int = 2){ // void (как войд метод в джава, тоесть ничего не возвращает)
+    println(x+y)}
+
+
+

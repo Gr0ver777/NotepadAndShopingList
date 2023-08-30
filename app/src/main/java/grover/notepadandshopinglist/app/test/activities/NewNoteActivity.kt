@@ -7,7 +7,10 @@ import android.view.Menu
 import android.view.MenuItem
 import grover.notepadandshopinglist.app.test.R
 import grover.notepadandshopinglist.app.test.databinding.ActivityNewNoteBinding
+import grover.notepadandshopinglist.app.test.entities.NoteItem
 import grover.notepadandshopinglist.app.test.fragments.NoteFragment
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NewNoteActivity : AppCompatActivity() {
 
@@ -36,11 +39,25 @@ class NewNoteActivity : AppCompatActivity() {
 
     private fun setMainResult(){
         val i = Intent().apply {
-            putExtra(NoteFragment.TITLE_KEY, binding.edTitle.text.toString())
-            putExtra(NoteFragment.DESC_KEY, binding.edDescription.text.toString())
+            //putExtra(NoteFragment.TITLE_KEY, binding.edTitle.text.toString())
+            putExtra(NoteFragment.NEW_NOTE_KEY, createNewNote())
         }
         setResult(RESULT_OK, i)
         finish()
+    }
+
+    private fun createNewNote(): NoteItem{
+        return NoteItem(
+            null,
+            binding.edTitle.text.toString(),
+            binding.edDescription.text.toString(),
+            getCurrentTime(),
+            ""
+        )
+    }
+    private fun getCurrentTime(): String{
+        val formatter = SimpleDateFormat("hh:mm:ss - dd/MM/yyyy", Locale.getDefault())
+        return formatter.format(Calendar.getInstance().time)
     }
 
     private fun actionBarSettings(){
